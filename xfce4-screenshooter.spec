@@ -8,6 +8,9 @@ Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	c01d1cf3830bf8d60e09c0cdd223034c
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
+BuildRequires:	gettext-devel
+BuildRequires:	intltool
+BuildRequires:	libsoup-devel >= 2.26.0
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0
@@ -17,19 +20,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This application allows you to capture the entire screen, the active
-window or a selected region. You can set the delay that elapses
-before the screenshot is taken and the action that will be done with
-the screenshot: save it to a PNG file, copy it to the clipboard, open
-it using another application, or host it on ZimageZ, a free online
-image hosting service.
+window or a selected region. You can set the delay that elapses before
+the screenshot is taken and the action that will be done with the
+screenshot: save it to a PNG file, copy it to the clipboard, open it
+using another application, or host it on ZimageZ, a free online image
+hosting service.
 
 A plugin for the Xfce panel is also available.
 
 %description -l pl.UTF-8
-Ta aplikacja umożliwia zrobienie zrzutu ekranu, aktywnego okna
-albo zaznaczonego obszaru. Można ustawić opóźnienie przed zrobieniem
-zrzutu ekranu i akcję, która zostanie wykonana po: zapisać do pliku
-PNG, przenieść do schowka, otworzyć przy pomocy innego programu lub
+Ta aplikacja umożliwia zrobienie zrzutu ekranu, aktywnego okna albo
+zaznaczonego obszaru. Można ustawić opóźnienie przed zrobieniem zrzutu
+ekranu i akcję, która zostanie wykonana po: zapisać do pliku PNG,
+przenieść do schowka, otworzyć przy pomocy innego programu lub
 umieścić na ZimageZ, darmowym serwisie hostowania obrazów.
 
 Dostępna jest też wtyczka dla panelu Xfce.
@@ -64,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce4-screenshooter.desktop
 %{_iconsdir}/hicolor/*/apps/applets-screenshooter.*
 %attr(755,root,root) %{_libdir}/xfce4/panel-plugins/xfce4-screenshooter-plugin
-%{_mandir}/man1/xfce4-screenshooter.1.gz
+%{_mandir}/man1/xfce4-screenshooter.1*
 %{_datadir}/xfce4/doc/C/*.html
 %{_datadir}/xfce4/doc/C/images/*.png
 %lang(ast) %{_datadir}/xfce4/doc/ast/*.html
