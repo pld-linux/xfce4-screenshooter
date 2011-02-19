@@ -1,0 +1,119 @@
+commit d0dbeb2a8d52f50e52201680c10d367b4a28fe93
+Author: Jérôme Guelfucci <jeromeg@xfce.org>
+Date:   Fri Dec 17 18:30:35 2010 +0100
+
+    Plug a bunch of leaks.
+
+diff --git a/lib/screenshooter-zimagez.c b/lib/screenshooter-zimagez.c
+index cbac3ec..142b7a1 100644
+--- a/lib/screenshooter-zimagez.c
++++ b/lib/screenshooter-zimagez.c
+@@ -241,7 +241,12 @@ zimagez_upload_job (ScreenshooterJob *job, GValueArray *param_values, GError **e
+   g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
+ 
+   if (exo_job_set_error_if_cancelled (EXO_JOB (job), error))
+-    return FALSE;
++    {
++      g_free (comment);
++      g_free (password);
++
++      return FALSE;
++    }
+ 
+   /* Get the last user */
+   last_user = g_value_get_string (g_value_array_get_nth (param_values, 1));
+diff --git a/src/main.c b/src/main.c
+index 986a600..1ae982e 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -152,6 +152,7 @@ int main (int argc, char **argv)
+                    PACKAGE, cli_error->message, PACKAGE_NAME);
+ 
+           g_error_free (cli_error);
++          g_free (sd);
+ 
+           return EXIT_FAILURE;
+         }
+@@ -161,16 +162,22 @@ int main (int argc, char **argv)
+   if (window && fullscreen)
+     {
+       g_printerr (conflict_error, "window", "fullscreen");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+   else if (window && region)
+     {
+       g_printerr (conflict_error, "window", "region");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+   else if (fullscreen && region)
+     {
+       g_printerr (conflict_error, "fullscreen", "region");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+ 
+@@ -178,20 +185,26 @@ int main (int argc, char **argv)
+   if (upload && (application != NULL))
+     {
+       g_printerr (conflict_error, "upload", "open");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+   else if (upload && (screenshot_dir != NULL))
+     {
+       g_printerr (conflict_error, "upload", "save");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+   else if ((application != NULL) && (screenshot_dir != NULL))
+     {
+       g_printerr (conflict_error, "open", "save");
++
++      g_free (sd);
+       return EXIT_FAILURE;
+     }
+ 
+-  /* Warn that action options, mouse and delay will be ignored in 
++  /* Warn that action options, mouse and delay will be ignored in
+    * non-cli mode */
+   if ((application != NULL) && !(fullscreen || window || region))
+     g_printerr (ignore_error, "open");
+@@ -207,6 +220,16 @@ int main (int argc, char **argv)
+   if (!g_thread_supported ())
+     g_thread_init (NULL);
+ 
++  /* Just print the version if we are in version mode */
++  if (version)
++    {
++      g_print ("%s\n", PACKAGE_STRING);
++
++      g_free (sd);
++
++      return EXIT_SUCCESS;
++    }
++
+   /* Read the preferences */
+   rc_file = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, "xfce4/xfce4-screenshooter", TRUE);
+   screenshooter_read_rc_file (rc_file, sd);
+@@ -225,14 +248,6 @@ int main (int argc, char **argv)
+ 
+   g_object_unref (default_save_dir);
+ 
+-  /* Just print the version if we are in version mode */
+-  if (version)
+-    {
+-      g_print ("%s\n", PACKAGE_STRING);
+-
+-      return EXIT_SUCCESS;
+-    }
+-
+   /* If a region cli option is given, take the screenshot accordingly.*/
+   if (fullscreen || window || region)
+     {

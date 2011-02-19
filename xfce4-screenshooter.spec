@@ -2,15 +2,20 @@ Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
 Version:	1.7.9
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	c01d1cf3830bf8d60e09c0cdd223034c
+Patch0:		%{name}-ui.patch
+Patch1:		%{name}-leaks.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	libsoup-devel >= 2.26.0
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0
@@ -39,8 +44,16 @@ Dostępna jest też wtyczka dla panelu Xfce.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+
 %configure \
 	--disable-static
 
