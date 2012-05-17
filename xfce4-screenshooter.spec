@@ -86,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/doc/xfce4-screenshooter
 %dir %{_datadir}/doc/xfce4-screenshooter/html
 %{_datadir}/doc/xfce4-screenshooter/html/C
-%lang(ast) %{_datadir}/doc/xfce4-screenshooter/html/ast
+#%lang(ast) %{_datadir}/doc/xfce4-screenshooter/html/ast
 %lang(ca) %{_datadir}/doc/xfce4-screenshooter/html/ca
 %lang(da) %{_datadir}/doc/xfce4-screenshooter/html/da
 %lang(es) %{_datadir}/doc/xfce4-screenshooter/html/es
