@@ -2,13 +2,12 @@ Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	d0ffea2052a8e70154cf13789070711f
 Patch0:		desktop-name.patch
-Patch1:		manual-dir.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -46,7 +45,6 @@ Dostępna jest też wtyczka dla panelu Xfce.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -85,29 +83,29 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/applets-screenshooter.*
 %{_mandir}/man1/xfce4-screenshooter.1*
 
-%{_datadir}/xfce4/doc/C/*.html
-%{_datadir}/xfce4/doc/C/images/*.png
-%lang(ast) %{_datadir}/xfce4/doc/ast/*.html
-%lang(ast) %{_datadir}/xfce4/doc/ast/images/*.png
-%lang(ca) %{_datadir}/xfce4/doc/ca/*.html
-%lang(ca) %{_datadir}/xfce4/doc/ca/images/*.png
-%lang(da) %{_datadir}/xfce4/doc/da/*.html
-%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
-%lang(es) %{_datadir}/xfce4/doc/es/*.html
-%lang(es) %{_datadir}/xfce4/doc/es/images/*.png
-%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
-%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
-%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
-%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
-%lang(id) %{_datadir}/xfce4/doc/id/*.html
-%lang(id) %{_datadir}/xfce4/doc/id/images/*.png
-%lang(it) %{_datadir}/xfce4/doc/it/*.html
-%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
-%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
-%lang(pt) %{_datadir}/xfce4/doc/pt/*.html
-%lang(pt) %{_datadir}/xfce4/doc/pt/images/*.png
-%lang(tr) %{_datadir}/xfce4/doc/tr/*.html
-%lang(tr) %{_datadir}/xfce4/doc/tr/images/*.png
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
+#%{_datadir}/xfce4/doc/C/*.html
+#%{_datadir}/xfce4/doc/C/images/*.png
+#%lang(ast) %{_datadir}/xfce4/doc/ast/*.html
+#%lang(ast) %{_datadir}/xfce4/doc/ast/images/*.png
+#%lang(ca) %{_datadir}/xfce4/doc/ca/*.html
+#%lang(ca) %{_datadir}/xfce4/doc/ca/images/*.png
+#%lang(da) %{_datadir}/xfce4/doc/da/*.html
+#%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
+#%lang(es) %{_datadir}/xfce4/doc/es/*.html
+#%lang(es) %{_datadir}/xfce4/doc/es/images/*.png
+#%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
+#%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
+#%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
+#%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
+#%lang(id) %{_datadir}/xfce4/doc/id/*.html
+#%lang(id) %{_datadir}/xfce4/doc/id/images/*.png
+#%lang(it) %{_datadir}/xfce4/doc/it/*.html
+#%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
+#%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
+#%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
+#%lang(pt) %{_datadir}/xfce4/doc/pt/*.html
+#%lang(pt) %{_datadir}/xfce4/doc/pt/images/*.png
+#%lang(tr) %{_datadir}/xfce4/doc/tr/*.html
+#%lang(tr) %{_datadir}/xfce4/doc/tr/images/*.png
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
