@@ -83,29 +83,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/applets-screenshooter.*
 %{_mandir}/man1/xfce4-screenshooter.1*
 
-#%{_datadir}/xfce4/doc/C/*.html
-#%{_datadir}/xfce4/doc/C/images/*.png
-#%lang(ast) %{_datadir}/xfce4/doc/ast/*.html
-#%lang(ast) %{_datadir}/xfce4/doc/ast/images/*.png
-#%lang(ca) %{_datadir}/xfce4/doc/ca/*.html
-#%lang(ca) %{_datadir}/xfce4/doc/ca/images/*.png
-#%lang(da) %{_datadir}/xfce4/doc/da/*.html
-#%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
-#%lang(es) %{_datadir}/xfce4/doc/es/*.html
-#%lang(es) %{_datadir}/xfce4/doc/es/images/*.png
-#%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
-#%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
-#%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
-#%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
-#%lang(id) %{_datadir}/xfce4/doc/id/*.html
-#%lang(id) %{_datadir}/xfce4/doc/id/images/*.png
-#%lang(it) %{_datadir}/xfce4/doc/it/*.html
-#%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
-#%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
-#%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
-#%lang(pt) %{_datadir}/xfce4/doc/pt/*.html
-#%lang(pt) %{_datadir}/xfce4/doc/pt/images/*.png
-#%lang(tr) %{_datadir}/xfce4/doc/tr/*.html
-#%lang(tr) %{_datadir}/xfce4/doc/tr/images/*.png
-#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
-#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
+%dir %{_datadir}/doc/xfce4-screenshooter
+%dir %{_datadir}/doc/xfce4-screenshooter/html
+%{_datadir}/doc/xfce4-screenshooter/html/C
+%lang(ast) %{_datadir}/doc/xfce4-screenshooter/html/ast
+%lang(ca) %{_datadir}/doc/xfce4-screenshooter/html/ca
+%lang(da) %{_datadir}/doc/xfce4-screenshooter/html/da
+%lang(es) %{_datadir}/doc/xfce4-screenshooter/html/es
+%lang(fr) %{_datadir}/doc/xfce4-screenshooter/html/fr
+%lang(gl) %{_datadir}/doc/xfce4-screenshooter/html/gl
+%lang(id) %{_datadir}/doc/xfce4-screenshooter/html/id
+%lang(it) %{_datadir}/doc/xfce4-screenshooter/html/it
+%lang(ja) %{_datadir}/doc/xfce4-screenshooter/html/ja
+%lang(pt) %{_datadir}/doc/xfce4-screenshooter/html/pt
+%lang(tr) %{_datadir}/doc/xfce4-screenshooter/html/tr
+%lang(zh_CN) %{_datadir}/doc/xfce4-screenshooter/html/zh_CN
