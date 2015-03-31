@@ -1,12 +1,12 @@
 Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
-Version:	1.8.1
-Release:	3
+Version:	1.8.2
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0ffea2052a8e70154cf13789070711f
+# Source0-md5:	3a32ecc5566453a58f6a4ddd70649444
 Patch0:		desktop-name.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
 BuildRequires:	autoconf >= 2.50
@@ -17,8 +17,8 @@ BuildRequires:	intltool
 BuildRequires:	libsoup-devel >= 2.26.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-dev-tools >= 4.10.0
-BuildRequires:	xfce4-panel-devel >= 4.10.0
+BuildRequires:	xfce4-dev-tools >= 4.12.0
+BuildRequires:	xfce4-panel-devel >= 4.12.0
 Requires:	xfce4-dirs >= 4.6
 Obsoletes:	xfce4-screenshooter-plugin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -81,20 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libscreenshooterplugin.so*
 %{_datadir}/xfce4/panel/plugins/screenshooter.desktop
 %{_iconsdir}/hicolor/*/apps/applets-screenshooter.*
+%{_datadir}/appdata/xfce4-screenshooter.appdata.xml
 %{_mandir}/man1/xfce4-screenshooter.1*
-
-%dir %{_datadir}/doc/xfce4-screenshooter
-%dir %{_datadir}/doc/xfce4-screenshooter/html
-%{_datadir}/doc/xfce4-screenshooter/html/C
-#%lang(ast) %{_datadir}/doc/xfce4-screenshooter/html/ast
-%lang(ca) %{_datadir}/doc/xfce4-screenshooter/html/ca
-%lang(da) %{_datadir}/doc/xfce4-screenshooter/html/da
-%lang(es) %{_datadir}/doc/xfce4-screenshooter/html/es
-%lang(fr) %{_datadir}/doc/xfce4-screenshooter/html/fr
-%lang(gl) %{_datadir}/doc/xfce4-screenshooter/html/gl
-%lang(id) %{_datadir}/doc/xfce4-screenshooter/html/id
-%lang(it) %{_datadir}/doc/xfce4-screenshooter/html/it
-%lang(ja) %{_datadir}/doc/xfce4-screenshooter/html/ja
-%lang(pt) %{_datadir}/doc/xfce4-screenshooter/html/pt
-%lang(tr) %{_datadir}/doc/xfce4-screenshooter/html/tr
-%lang(zh_CN) %{_datadir}/doc/xfce4-screenshooter/html/zh_CN
