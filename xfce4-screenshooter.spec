@@ -1,12 +1,12 @@
 Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
-Version:	1.9.7
+Version:	1.9.8
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	9b63c0fa7cbde8ec4e6cacb75fc44b65
+# Source0-md5:	35f049f959ca5aeae07b065fff7c2762
 Patch0:		desktop-name.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
 BuildRequires:	autoconf >= 2.50
@@ -66,8 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie,ur_PK}
 # unify
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
@@ -78,11 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS
 %attr(755,root,root) %{_bindir}/xfce4-screenshooter
 %{_desktopdir}/xfce4-screenshooter.desktop
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libscreenshooterplugin.so*
 %{_datadir}/xfce4/panel/plugins/screenshooter.desktop
-%{_iconsdir}/hicolor/*/apps/applets-screenshooter.*
+%{_iconsdir}/hicolor/*/apps/org.xfce.screenshooter.*
 %{_datadir}/metainfo/xfce4-screenshooter.appdata.xml
 %{_mandir}/man1/xfce4-screenshooter.1*
