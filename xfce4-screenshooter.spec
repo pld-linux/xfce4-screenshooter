@@ -1,12 +1,12 @@
 Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
-Version:	1.9.10
+Version:	1.9.11
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/apps/xfce4-screenshooter/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	2affc4a5356b2bc238a3e51dd710ae2c
+# Source0-md5:	9806f19570daf08d5035ac53746974d1
 Patch0:		desktop-name.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
 BuildRequires:	autoconf >= 2.50
