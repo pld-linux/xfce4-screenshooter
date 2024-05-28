@@ -1,10 +1,10 @@
---- xfce4-screenshooter-1.9.9/src/xfce4-screenshooter.desktop.in.in~	2020-12-20 07:20:33.000000000 +0000
-+++ xfce4-screenshooter-1.9.9/src/xfce4-screenshooter.desktop.in.in	2021-05-19 07:17:27.732443152 +0000
+--- xfce4-screenshooter-1.10.6/src/xfce4-screenshooter.desktop.in~	2024-05-26 20:18:45.000000000 +0000
++++ xfce4-screenshooter-1.10.6/src/xfce4-screenshooter.desktop.in	2024-05-28 23:33:52.168971880 +0000
 @@ -1,6 +1,6 @@
  [Desktop Entry]
  Version=1.0
--_Name=Screenshot
-+_Name=Screenshooter
- _Comment=Take screenshots of the entire screen, of the active window or of a region
+-Name=Screenshot
++Name=Screenshooter
+ Comment=Take screenshots of the entire screen, of the active window or of a region
  Icon=org.xfce.screenshooter
  Exec=xfce4-screenshooter
