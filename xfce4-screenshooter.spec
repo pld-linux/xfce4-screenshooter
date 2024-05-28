@@ -19,8 +19,10 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4ui-devel >= 4.16.0
 BuildRequires:	libxfce4util-devel >= 4.16.0
 BuildRequires:	pkgconfig
+BuildRequires:	wayland-devel >= 1.15.0
 BuildRequires:	xfce4-dev-tools >= 4.16.0
 BuildRequires:	xfce4-panel-devel >= 4.16.0
+BuildRequires:	xorg-lib-libXfixes-devel >= 4.0.0
 Requires:	xfce4-dirs >= 4.6
 Obsoletes:	xfce4-screenshooter-plugin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
