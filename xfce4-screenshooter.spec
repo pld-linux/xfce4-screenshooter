@@ -1,27 +1,31 @@
 Summary:	Screenshooter application and plugin for Xfce panel
 Summary(pl.UTF-8):	Aplikacja screenshooter i wtyczka dla panelu Xfce
 Name:		xfce4-screenshooter
-Version:	1.11.1
+Version:	1.11.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	2b9ac90a14ce278117347107ed5cd705
+Source0:	https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/%{name}-%{version}.tar.xz
+# Source0-md5:	c1ac25c948a949c699c2034f7d3af56d
 Patch0:		desktop-name.patch
 URL:		https://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
 BuildRequires:	exo-devel >= 0.12.0
 BuildRequires:	gettext-tools
-BuildRequires:	intltool
-BuildRequires:	libtool
-BuildRequires:	libxfce4ui-devel >= 4.16.0
-BuildRequires:	libxfce4util-devel >= 4.16.0
+BuildRequires:	glib2-devel >= 1:2.66.0
+BuildRequires:	gtk+3-devel >= 3.24.0
+BuildRequires:	libxfce4ui-devel >= 4.18.0
+BuildRequires:	libxfce4util-devel >= 4.18.0
+BuildRequires:	meson >= 0.56.0
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
-BuildRequires:	wayland-devel >= 1.15.0
-BuildRequires:	xfce4-dev-tools >= 4.16.0
-BuildRequires:	xfce4-panel-devel >= 4.16.0
+BuildRequires:	wayland-devel >= 1.20.0
+BuildRequires:	wayland-protocols >= 1.25
+BuildRequires:	xfce4-dev-tools >= 4.18.0
+BuildRequires:	xfce4-panel-devel >= 4.18.0
+BuildRequires:	xorg-lib-libX11-devel >= 1.6.7
+BuildRequires:	xorg-lib-libXext-devel >= 1.0.0
 BuildRequires:	xorg-lib-libXfixes-devel >= 4.0.0
+BuildRequires:	xorg-lib-libXi-devel >= 1.7.8
 Requires:	xfce4-dirs >= 4.6
 Obsoletes:	xfce4-screenshooter-plugin
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,27 +51,16 @@ Dostępna jest też wtyczka dla panelu Xfce.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-
-%configure \
-	--disable-static
-
-%{__make}
+%meson
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
+%meson_install
 
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{fa_IR,hye,ie,ur_PK}
 # unify
@@ -84,11 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-screenshooter
 %{_desktopdir}/xfce4-screenshooter.desktop
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libscreenshooterplugin.so*
-%dir %{_prefix}/libexec/xfce4
-%dir %{_prefix}/libexec/xfce4/screenshooter
-%dir %{_prefix}/libexec/xfce4/screenshooter/scripts
-%attr(755,root,root) %{_prefix}/libexec/xfce4/screenshooter/scripts/imgur-upload.sh
 %{_datadir}/xfce4/panel/plugins/screenshooter.desktop
 %{_iconsdir}/hicolor/*/apps/org.xfce.screenshooter.*
 %{_datadir}/metainfo/xfce4-screenshooter.appdata.xml
-%{_mandir}/man1/xfce4-screenshooter.1*
